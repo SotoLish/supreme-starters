@@ -78,7 +78,7 @@ public class MybatisPlusAutoConfiguration {
      * 自定义ID生成器
      */
     @Bean
-    public IdentifierGenerator helioSnowflakeIdentifierGeneratorHandler() {
+    public IdentifierGenerator supremeSnowflakeIdentifierGeneratorHandler() {
         return new SupremeIdentifierGeneratorHandler(supremeProperties);
     }
 
