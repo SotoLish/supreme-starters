@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <modules>
+        <module>supreme-core</module>
+        <module>supreme-crud-starter</module>
+        <module>supreme-web-starter</module>
+        <module>supreme-cache-starter</module>
+        <module>supreme-knife4j-starter</module>
+    </modules>
+
+    <groupId>club.supreme.framework</groupId>
+    <artifactId>supreme-starters</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>${project.artifactId}</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- 若变更Spring Boot版本, 上面parent依赖版本也要变 -->
+<!--        <version>2.5.8</version>-->
+        <version>2.2.1.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <!-- core versions -->
+        <supreme-starters.version>${project.version}</supreme-starters.version>
+        <!-- JDK8则改为'1.8'  JDK11则改为'11' -->
+        <java.version>11</java.version>
+
+<!--        <spring-cloud.version>2020.0.4</spring-cloud.version>-->
+        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+
+        <!-- Spring Cloud versions -->
+<!--        <spring-cloud-starter-bootstrap.version>3.0.3</spring-cloud-starter-bootstrap.version>-->
+
+
+        <!-- Spring Cloud Alibaba versions -->
+<!--        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>-->
+        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
+
+<!--        <seata.vesion>1.4.2</seata.vesion>-->
+<!--        <nacos-client.vesion>2.0.3</nacos-client.vesion>-->
+<!---->
+
+        <!-- 3rd-party versions -->
+        <hutool.version>5.7.16</hutool.version>
+        <!-- 暂不升级，用 1.28.0 时存在 ThreadLocal 溢出问题，待观察 -->
+        <sa-token.version>1.27.0</sa-token.version>
+        <transmittable-thread-local.version>2.12.1</transmittable-thread-local.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <druid.version>1.2.8</druid.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <redisson.version>3.16.3</redisson.version>
+        <aspectj.version>1.9.6</aspectj.version>
+        <ons-client.version>1.8.8.1.Final</ons-client.version>
+
+        <easypoi.version>4.2.0</easypoi.version>
+
+        <guava.version>31.0.1-jre</guava.version>
+
+        <!-- DB Driver versions -->
+<!--        <mysql.version>8.0.23</mysql.version>-->
+<!--        <postgresql.version>42.2.19</postgresql.version>-->
+        <!-- 以下2项版本较旧, 请根据JDK版本自行更新 -->
+        <mssql.version>4.0</mssql.version>
+        <oracle.version>11.2.0.3</oracle.version>
+
+
+        <!-- Maven properties -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.version>3.6.3</maven.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <buildTime>v.${project.version} build ${maven.build.timestamp.format}</buildTime>
+        <main.user.dir>${basedir}/..</main.user.dir>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+    </properties>
+
+
+
+    <!-- 全局使用 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- dependencyManagement -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- sub starters -->
+            <dependency>
+                <groupId>club.supreme.framework</groupId>
+                <artifactId>supreme-core</artifactId>
+                <version>${supreme-starters.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>club.supreme.framework</groupId>
+                <artifactId>supreme-cache-starter</artifactId>
+                <version>${supreme-starters.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>club.supreme.framework</groupId>
+                <artifactId>supreme-crud-starter</artifactId>
+                <version>${supreme-starters.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>club.supreme.framework</groupId>
+                <artifactId>supreme-web-starter</artifactId>
+                <version>${supreme-starters.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>club.supreme.framework</groupId>
+                <artifactId>supreme-knife4j-starter</artifactId>
+                <version>${supreme-starters.version}</version>
+            </dependency>
+
+
+
+
+            <!-- 以下两个不知道为什么, 好像一定得加 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- CORE dependencies -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+
+            <!-- AOP dependencies -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+
+
+            <!-- CLOUD dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-bootstrap</artifactId>-->
+<!--                <version>${spring-cloud-starter-bootstrap.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.nacos</groupId>-->
+<!--                <artifactId>nacos-client</artifactId>-->
+<!--                <version>${nacos-client.vesion}</version>-->
+<!--            </dependency>-->
+
+
+            <!-- CRUD dependencies -->
+            <!-- 常用数据库驱动 -->
+<!--            <dependency>-->
+<!--                <groupId>mysql</groupId>-->
+<!--                <artifactId>mysql-connector-java</artifactId>-->
+<!--                <version>${mysql.version}</version>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>org.postgresql</groupId>-->
+<!--                <artifactId>postgresql</artifactId>-->
+<!--                <version>${postgresql.version}</version>-->
+<!--            </dependency>-->
+
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${oracle.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>sqljdbc4</artifactId>
+                <version>${mssql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- DUBBO dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.dubbo</groupId>-->
+<!--                <artifactId>dubbo-spring-boot-starter</artifactId>-->
+<!--                <version>${dubbo.version}</version>-->
+<!--            </dependency>-->
+
+
+            <!-- KNIFE4J dependencies -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-annotations</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+
+            <!-- REDIS dependencies -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-actuator</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- ROCKETMQ-ALIYUN dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>com.aliyun.openservices</groupId>-->
+<!--                <artifactId>ons-client</artifactId>-->
+<!--                <version>${ons-client.version}</version>-->
+<!--            </dependency>-->
+
+
+            <!-- SA-TOKEN dependencies -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-dao-redis-jackson</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+
+            <!-- SEATA dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>io.seata</groupId>-->
+<!--                <artifactId>seata-spring-boot-starter</artifactId>-->
+<!--                <version>${seata.vesion}</version>-->
+<!--            </dependency>-->
+
+
+            <!-- TEST dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-test</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--            </dependency>-->
+
+
+            <!-- WEB dependencies -->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-web</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--                &lt;!&ndash; 排除内置Tomcat，starter-web中会另外引入Undertow作为Web容器 &ndash;&gt;-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>org.springframework.boot</groupId>-->
+<!--                        <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
+
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-validation</artifactId>-->
+<!--                <version>${spring-boot.version}</version>-->
+<!--            </dependency>-->
+
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-spring-boot-starter</artifactId>
+                <version>${easypoi.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-web</artifactId>
+                <version>${easypoi.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-annotation</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-base</artifactId>
+                <version>${easypoi.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>javassist</artifactId>
+                        <groupId>org.javassist</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
