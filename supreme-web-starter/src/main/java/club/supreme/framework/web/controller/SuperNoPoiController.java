@@ -31,6 +31,11 @@ import java.lang.reflect.ParameterizedType;
 public abstract class SuperNoPoiController<S extends SupremeBaseService<Entity>, Id extends Serializable, Entity, PageQuery, SaveDTO, UpdateDTO> extends SuperSimpleController<S, Entity>
         implements SaveController<Entity, SaveDTO>, UpdateController<Entity, UpdateDTO>, DeleteController<Entity, Id>, QueryController<Entity, Id, PageQuery> {
 
+    /**
+     * 得到实体类
+     *
+     * @return {@link Class}<{@link Entity}>
+     */
     @Override
     public Class<Entity> getEntityClass() {
         if (entityClass == null) {

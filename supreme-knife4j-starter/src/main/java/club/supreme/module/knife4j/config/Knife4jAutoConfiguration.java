@@ -46,13 +46,24 @@ import java.util.function.Function;
 @Configuration
 public class Knife4jAutoConfiguration {
 
+    /**
+     * 头标记名
+     */
     @Value(value = "${sa-token.token-name:Authorization}")
     private String HEADER_TOKEN_NAME;
 
+    /**
+     * 最高属性
+     */
     @Resource
     private SupremeProperties supremeProperties;
 
 
+    /**
+     * 集团rest api
+     *
+     * @return {@link Docket}
+     */
     @Bean
     @Order(value = 1)
     public Docket groupRestApi() {
@@ -70,6 +81,11 @@ public class Knife4jAutoConfiguration {
                 ;
     }
 
+    /**
+     * api信息
+     *
+     * @return {@link ApiInfo}
+     */
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
                 .title(supremeProperties.getKnife4j().getTitle())
@@ -80,6 +96,11 @@ public class Knife4jAutoConfiguration {
                 .build();
     }
 
+    /**
+     * 安全上下文
+     *
+     * @return {@link SecurityContext}
+     */
     private SecurityContext securityContext() {
         List<SecurityReference> references = new ArrayList<>();
 
@@ -94,20 +115,42 @@ public class Knife4jAutoConfiguration {
                 .build();
     }
 
+    /**
+     * api密匙令牌
+     *
+     * @return {@link ApiKey}
+     */
     private ApiKey apiKeyOfToken() {
         return new ApiKey(HEADER_TOKEN_NAME, HEADER_TOKEN_NAME, "header");
     }
 
 
-
+    /**
+     * 基本包
+     *
+     * @param basePackage 基本包
+     * @return {@link Predicate}<{@link RequestHandler}>
+     */
     private Predicate<RequestHandler> basePackage(final String basePackage) {
         return input -> declaringClass(input).map(handlerPackage(basePackage)).orElse(true);
     }
 
+    /**
+     * 处理程序包
+     *
+     * @param basePackage 基本包
+     * @return {@link Function}<{@link Class}<{@link ?}>, {@link Boolean}>
+     */
     private Function<Class<?>, Boolean> handlerPackage(final String basePackage) {
         return input -> StrUtil.split(basePackage, StrPool.SEMICOLON).stream().anyMatch(ClassUtils.getPackageName(input)::startsWith);
     }
 
+    /**
+     * 声明类
+     *
+     * @param input 输入
+     * @return {@link Optional}<{@link ?} {@link extends} {@link Class}<{@link ?}>>
+     */
     private static Optional<? extends Class<?>> declaringClass(RequestHandler input) {
         return Optional.ofNullable(input.declaringClass());
     }

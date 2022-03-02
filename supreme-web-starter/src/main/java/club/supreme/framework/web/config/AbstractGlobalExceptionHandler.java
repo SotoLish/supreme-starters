@@ -53,6 +53,12 @@ import static club.supreme.framework.exception.code.ExceptionCode.REQUIRED_FILE_
 @SuppressWarnings("AlibabaUndefineMagicConstant")
 @Slf4j
 public abstract class AbstractGlobalExceptionHandler {
+    /**
+     * 业务异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(BizException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> bizException(BizException ex) {
@@ -60,6 +66,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ex.getCode(), null, ex.getMessage(), ex.getLocalizedMessage()).setPath(getPath());
     }
 
+    /**
+     * 业务异常
+     *
+     * @param ex 前女友
+     * @return {@link R}
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ArgumentException.class)
     public R bizException(ArgumentException ex) {
@@ -67,6 +79,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ex.getCode(), null, ex.getMessage(), ex.getLocalizedMessage()).setPath(getPath());
     }
 
+    /**
+     * 被禁止除外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(ForbiddenException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public R<?> forbiddenException(ForbiddenException ex) {
@@ -74,6 +92,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ex.getCode(), null, ex.getMessage(), ex.getLocalizedMessage()).setPath(getPath());
     }
 
+    /**
+     * 未经授权例外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(UnauthorizedException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public R<?> unauthorizedException(UnauthorizedException ex) {
@@ -81,6 +105,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ex.getCode(), null, ex.getMessage(), ex.getLocalizedMessage()).setPath(getPath());
     }
 
+    /**
+     * http消息不可读例外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> httpMessageNotReadableException(HttpMessageNotReadableException ex) {
@@ -93,6 +123,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.PARAM_EX.getCode(), null, ExceptionCode.PARAM_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 绑定异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> bindException(BindException ex) {
@@ -116,6 +152,12 @@ public abstract class AbstractGlobalExceptionHandler {
     }
 
 
+    /**
+     * 方法参数类型不匹配例外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex) {
@@ -125,6 +167,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.PARAM_EX.getCode(), null, msg, ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 非法状态异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(IllegalStateException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> illegalStateException(IllegalStateException ex) {
@@ -132,6 +180,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.ILLEGAL_ARGUMENT_EX.getCode(), null, ExceptionCode.ILLEGAL_ARGUMENT_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 失踪servlet请求参数异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> missingServletRequestParameterException(MissingServletRequestParameterException ex) {
@@ -139,6 +193,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.ILLEGAL_ARGUMENT_EX.getCode(), null, "缺少必须的[" + ex.getParameterType() + "]类型的参数[" + ex.getParameterName() + "]", ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 空指针异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(NullPointerException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> nullPointerException(NullPointerException ex) {
@@ -146,6 +206,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.NULL_POINT_EX.getCode(), null, ExceptionCode.NULL_POINT_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 非法参数异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> illegalArgumentException(IllegalArgumentException ex) {
@@ -153,6 +219,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.ILLEGAL_ARGUMENT_EX.getCode(), null, ExceptionCode.ILLEGAL_ARGUMENT_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * http媒体类型不支持例外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> httpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException ex) {
@@ -164,6 +236,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.MEDIA_TYPE_EX.getCode(), null, "无效的Content-Type类型", ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 失踪servlet请求部分例外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(MissingServletRequestPartException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> missingServletRequestPartException(MissingServletRequestPartException ex) {
@@ -171,6 +249,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(REQUIRED_FILE_PARAM_EX.getCode(), null, REQUIRED_FILE_PARAM_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * servlet异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(ServletException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> servletException(ServletException ex) {
@@ -182,6 +266,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.SYSTEM_BUSY.getCode(), null, ex.getMessage(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 多部分例外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(MultipartException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> multipartException(MultipartException ex) {
@@ -190,7 +280,11 @@ public abstract class AbstractGlobalExceptionHandler {
     }
 
     /**
+     * 约束违反例外
      * jsr 规范中的验证异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
      */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -203,7 +297,11 @@ public abstract class AbstractGlobalExceptionHandler {
     }
 
     /**
+     * 方法参数无效例外
      * spring 封装的参数验证异常， 在controller中没有写result参数时，会进入
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -217,6 +315,11 @@ public abstract class AbstractGlobalExceptionHandler {
                 .setPath(getPath());
     }
 
+    /**
+     * 获取路径
+     *
+     * @return {@link String}
+     */
     private String getPath() {
         String path = StrPool.EMPTY;
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
@@ -254,6 +357,12 @@ public abstract class AbstractGlobalExceptionHandler {
     }
 
 
+    /**
+     * 持久性例外
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(PersistenceException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> persistenceException(PersistenceException ex) {
@@ -265,6 +374,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.SQL_EX.getCode(), null, ExceptionCode.SQL_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 我batis系统异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(MyBatisSystemException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> myBatisSystemException(MyBatisSystemException ex) {
@@ -275,6 +390,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.SQL_EX.getCode(), null, ExceptionCode.SQL_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * sql异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(SQLException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> sqlException(SQLException ex) {
@@ -282,6 +403,12 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.SQL_EX.getCode(), null, ExceptionCode.SQL_EX.getMsg(), ex.getMessage()).setPath(getPath());
     }
 
+    /**
+     * 违反数据完整性异常
+     *
+     * @param ex 前女友
+     * @return {@link R}<{@link ?}>
+     */
     @ExceptionHandler(DataIntegrityViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public R<?> dataIntegrityViolationException(DataIntegrityViolationException ex) {

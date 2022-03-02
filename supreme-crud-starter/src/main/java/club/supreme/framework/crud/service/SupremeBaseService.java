@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import java.util.List;
 
 /**
+ * 最高基础服务
  * 基于MP的 IService 新增了2个方法： saveBatchSomeColumn、updateAllById
  * 其中：
  * 1，updateAllById 执行后，会清除缓存

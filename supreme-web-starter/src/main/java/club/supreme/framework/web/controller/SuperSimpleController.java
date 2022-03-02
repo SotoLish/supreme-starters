@@ -18,10 +18,21 @@ import java.lang.reflect.ParameterizedType;
  */
 public abstract class SuperSimpleController<S extends SupremeBaseService<Entity>, Entity> implements BaseController<Entity> {
 
+    /**
+     * 实体类
+     */
     Class<Entity> entityClass = null;
+    /**
+     * 基础服务
+     */
     @Autowired
     protected S baseService;
 
+    /**
+     * 得到实体类
+     *
+     * @return {@link Class}<{@link Entity}>
+     */
     @Override
     public Class<Entity> getEntityClass() {
         if (entityClass == null) {
@@ -30,6 +41,11 @@ public abstract class SuperSimpleController<S extends SupremeBaseService<Entity>
         return this.entityClass;
     }
 
+    /**
+     * 获得基本服务
+     *
+     * @return {@link SupremeBaseService}<{@link Entity}>
+     */
     @Override
     public SupremeBaseService<Entity> getBaseService() {
         return baseService;

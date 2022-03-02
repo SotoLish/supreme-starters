@@ -37,6 +37,11 @@ public abstract class SuperController<S extends SupremeBaseService<Entity>, Id e
         implements SaveController<Entity, SaveDTO>, UpdateController<Entity, UpdateDTO>, DeleteController<Entity, Id>, PoiController<Entity, PageQuery>, QueryController<Entity, Id, PageQuery> {
 
 
+    /**
+     * 得到实体类
+     *
+     * @return {@link Class}<{@link Entity}>
+     */
     @Override
     public Class<Entity> getEntityClass() {
         if (entityClass == null) {
