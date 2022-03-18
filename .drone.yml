@@ -5,6 +5,9 @@ name: default
 steps:
   - name: greeting
     image: alpine
+    # 添加容器内部hosts映射，映射到zerotier-one的地址，配合修改本地hosts
+    extra_hosts:
+      - "www.laiyouxu.club:172.22.209.43"
     commands:
       - echo hello
       - echo world
