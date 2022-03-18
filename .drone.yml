@@ -8,6 +8,6 @@ name: default
 steps:
   - name: 编译步骤
     image: alpine
-    args: --add-host 'www.laiyouxu.club:172.22.209.43'
+    args: --add-host=www.laiyouxu.club:172.22.209.43
     commands:
       - echo hello drone
