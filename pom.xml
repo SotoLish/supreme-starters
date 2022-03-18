@@ -385,4 +385,33 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Repository</name>
+            <url>http://nexus.laiyouxu.club/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!--snapshots默认是关闭的,需要开启 -->
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!--私服上传配置-->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Nexus ReleaseRepository</name>
+            <url>http://nexus.laiyouxu.club/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Nexus SnapshotsRepository</name>
+            <url>http://nexus.laiyouxu.club/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
