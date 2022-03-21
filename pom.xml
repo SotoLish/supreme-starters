@@ -390,7 +390,7 @@
         <repository>
             <id>nexus</id>
             <name>Nexus Repository</name>
-            <url>http://nexus.laiyouxu.club/repository/maven-public/</url>
+            <url>http://nexus-server-nexus3.supreme.club/#browse/browse:maven-public</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -406,12 +406,12 @@
         <repository>
             <id>releases</id>
             <name>Nexus ReleaseRepository</name>
-            <url>http://nexus.laiyouxu.club/repository/maven-releases/</url>
+            <url>http://nexus-server-nexus3.supreme.club/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
             <name>Nexus SnapshotsRepository</name>
-            <url>http://nexus.laiyouxu.club/repository/maven-snapshots</url>
+            <url>http://nexus-server-nexus3.supreme.club/repository/maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
