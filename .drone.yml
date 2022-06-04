@@ -3,7 +3,7 @@ type: docker # 定义流水线类型，还有kubernetes、exec、ssh等类型
 name: supreme-starters-tiny-drone # 定义流水线名称
 
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
-  - name: deploy # 流水线名称
+  - name: deploy-task # 流水线名称
     image: maven:3-jdk-11 # 定义创建容器的Docker镜像
     volumes: # 将容器内目录挂载到宿主机，仓库需要开启Trusted设置
       - name: maven-cache
