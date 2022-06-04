@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerIntercep
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,12 +23,13 @@ import javax.annotation.Resource;
 
 /**
  * Mybatis-Plus配置类
- * @author Uncarbon
+ * @author Supreme
  */
 @EnableTransactionManagement(
         proxyTargetClass = true
 )
 @Configuration
+@Slf4j
 public class MybatisPlusAutoConfiguration {
 
     @Resource
@@ -50,9 +52,10 @@ public class MybatisPlusAutoConfiguration {
         sql性能规范,防止全表更新与删除
          */
         // 多租户 && 行级租户隔离级别
-        if (Boolean.TRUE.equals(supremeProperties.getCrud().getTenant().getEnabled())
-                && TenantIsolateLevelEnumI.LINE.equals(supremeProperties.getCrud().getTenant().getIsolateLevel())
+        if (Boolean.TRUE.equals(supremeProperties.getTenant().getEnabled())
+                && TenantIsolateLevelEnumI.LINE.equals(supremeProperties.getTenant().getIsolateLevel())
         ) {
+            log.info("检查到租户已启用采用了行模式（line）");
             interceptor.addInnerInterceptor(new TenantLineInnerInterceptor(supremeTenantLineHandler));
         }
 

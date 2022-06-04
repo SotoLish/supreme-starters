@@ -1,6 +1,7 @@
 package club.supreme.framework.cache.lock.impl;
 
 import club.supreme.framework.cache.lock.DistributedLock;
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
@@ -12,9 +13,9 @@ import java.util.concurrent.TimeUnit;
  * Redis分布式可重入锁，基于Redisson实现
  *
  * @author dcy
- * @author Uncarbon
+ * @author Supreme
  */
-@Service
+@Slf4j
 public class RedisDistributedLockImpl implements DistributedLock {
 
     /**

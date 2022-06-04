@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 自动配置文件读取
  *
- * @author Uncarbon
+ * @author Supreme
  */
 @EnableConfigurationProperties(value = {SupremeProperties.class})
 @Configuration

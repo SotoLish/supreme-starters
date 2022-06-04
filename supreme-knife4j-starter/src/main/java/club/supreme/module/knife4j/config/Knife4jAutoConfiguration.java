@@ -37,7 +37,7 @@ import java.util.function.Function;
 /**
  * knife4j自动配置类
  * 参考http://events.jianshu.io/p/2f19c1863da0
- * @author Uncarbon
+ * @author Supreme
  * @author xiaoymin
  */
 @EnableOpenApi

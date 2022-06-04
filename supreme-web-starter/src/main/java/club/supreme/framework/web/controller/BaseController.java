@@ -1,6 +1,7 @@
 package club.supreme.framework.web.controller;
 
 
+import club.supreme.framework.context.TenantContextHolder;
 import club.supreme.framework.context.UserContextHolder;
 import club.supreme.framework.crud.service.SupremeBaseService;
 import club.supreme.framework.exception.BizException;
@@ -162,7 +163,7 @@ public interface BaseController<Entity> {
      * @return 租户编码
      */
     default Long getTenant() {
-        return UserContextHolder.getRelationalTenant().getTenantId();
+        return TenantContextHolder.getTenantId();
     }
 
     /**

@@ -7,7 +7,7 @@ import lombok.Getter;
 
 /**
  * 多租户隔离级别枚举类
- * @author Uncarbon
+ * @author Supreme
  */
 @AllArgsConstructor
 @Getter

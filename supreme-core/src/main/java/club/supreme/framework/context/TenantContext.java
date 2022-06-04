@@ -21,6 +21,10 @@ import java.io.Serializable;
 @Data
 public class TenantContext implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
+    public static final String CAMEL_NAME = "tenantContext";
+
     @ApiModelProperty(value = "租户ID")
     private Long tenantId;
 

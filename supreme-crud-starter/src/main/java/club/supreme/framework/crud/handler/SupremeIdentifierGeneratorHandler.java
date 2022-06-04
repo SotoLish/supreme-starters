@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * 自定义雪花ID生成器
- * @author Uncarbon
+ * @author Supreme
  */
 @Slf4j
 public class SupremeIdentifierGeneratorHandler implements IdentifierGenerator {

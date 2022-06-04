@@ -1,6 +1,7 @@
 package club.supreme.framework.crud.page;
 
 import club.supreme.framework.constant.StrPool;
+import club.supreme.framework.constant.SupremeConstant;
 import club.supreme.framework.crud.conditions.Wraps;
 import club.supreme.framework.model.SupremeBaseEntity;
 import cn.hutool.core.util.StrUtil;
@@ -40,8 +41,8 @@ public class PageParams<T> {
     @ApiModelProperty(value = "当前页", example = "1")
     private long current = 1;
 
-    @ApiModelProperty(value = "排序,默认createTime", allowableValues = "id,createTime,updateTime", example = "id")
-    private String sort = SupremeBaseEntity.PK_ID;
+    @ApiModelProperty(value = "排序,默认createdAt", allowableValues = "id,createdAt,updatedAt", example = "createdAt")
+    private String sort = SupremeConstant.CRUD.COLUMN_CREATED_AT;
 
     @ApiModelProperty(value = "排序规则, 默认descending", allowableValues = "descending,ascending", example = "descending")
     private String order = "descending";

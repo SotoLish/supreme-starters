@@ -10,6 +10,7 @@
         <module>supreme-web-starter</module>
         <module>supreme-cache-starter</module>
         <module>supreme-knife4j-starter</module>
+        <module>supreme-satoken-starter</module>
     </modules>
 
     <groupId>club.supreme.framework</groupId>
@@ -22,8 +23,8 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <!-- 若变更Spring Boot版本, 上面parent依赖版本也要变 -->
-<!--        <version>2.5.8</version>-->
-        <version>2.2.1.RELEASE</version>
+        <version>2.5.8</version>
+<!--        <version>2.2.1.RELEASE</version>-->
         <relativePath/>
     </parent>
 
@@ -33,16 +34,16 @@
         <!-- JDK8则改为'1.8'  JDK11则改为'11' -->
         <java.version>11</java.version>
 
-<!--        <spring-cloud.version>2020.0.4</spring-cloud.version>-->
-        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
+<!--        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>-->
 
         <!-- Spring Cloud versions -->
-<!--        <spring-cloud-starter-bootstrap.version>3.0.3</spring-cloud-starter-bootstrap.version>-->
+        <spring-cloud-starter-bootstrap.version>3.0.3</spring-cloud-starter-bootstrap.version>
 
 
         <!-- Spring Cloud Alibaba versions -->
-<!--        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>-->
-        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+<!--        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>-->
 
 <!--        <seata.vesion>1.4.2</seata.vesion>-->
 <!--        <nacos-client.vesion>2.0.3</nacos-client.vesion>-->
@@ -124,6 +125,12 @@
             <dependency>
                 <groupId>club.supreme.framework</groupId>
                 <artifactId>supreme-web-starter</artifactId>
+                <version>${supreme-starters.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>club.supreme.framework</groupId>
+                <artifactId>supreme-satoken-starter</artifactId>
                 <version>${supreme-starters.version}</version>
             </dependency>
 
@@ -391,7 +398,7 @@
         <repository>
             <id>nexus</id>
             <name>Nexus Repository</name>
-            <url>http://nexus-server-nexus3.supreme.club/repository/maven-public/</url>
+            <url>http://nexus.supreme.club/repository/maven-public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -407,12 +414,12 @@
         <repository>
             <id>maven-releases</id>
             <name>Nexus ReleaseRepository</name>
-            <url>http://nexus-server-nexus3.supreme.club/repository/maven-releases/</url>
+            <url>http://nexus.supreme.club/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>maven-snapshots</id>
             <name>Nexus SnapshotsRepository</name>
-            <url>http://nexus-server-nexus3.supreme.club/repository/maven-snapshots/</url>
+            <url>http://nexus.supreme.club/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

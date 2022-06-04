@@ -7,7 +7,7 @@ import lombok.Getter;
 
 /**
  * 主键ID生成器策略枚举类
- * @author Uncarbon
+ * @author Supreme
  */
 @AllArgsConstructor
 @Getter

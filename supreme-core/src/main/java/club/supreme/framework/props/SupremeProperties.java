@@ -19,7 +19,7 @@ import static club.supreme.framework.props.SupremeProperties.PREFIX;
 /**
  * 配置文件读取类
  *
- * @author Uncarbon
+ * @author Supreme
  */
 @ConfigurationProperties(prefix = PREFIX, ignoreInvalidFields = true)
 @Data
@@ -28,7 +28,9 @@ public class SupremeProperties {
 
     private final Security security = new Security();
     private final Crud crud = new Crud();
+    private final Tenant tenant = new Tenant();
     private final Knife4j knife4j = new Knife4j();
+    private final Web web = new Web();
 
     @NestedConfigurationProperty
     private final SupremeCacheProperties cache = new SupremeCacheProperties();
@@ -58,11 +60,6 @@ public class SupremeProperties {
     public static class Crud {
 
         /**
-         * 多租户插件
-         */
-        private final Tenant tenant = new Tenant();
-
-        /**
          * 乐观锁插件
          */
         private final OptimisticLock optimisticLock = new OptimisticLock();
@@ -79,28 +76,6 @@ public class SupremeProperties {
          */
         private String dbType = DbType.MYSQL.getDb();
 
-
-        @Data
-        public static class Tenant {
-
-            /**
-             * 是否启用多租户
-             * 默认为false
-             */
-            private Boolean enabled = false;
-
-            /**
-             * 多租户隔离级别
-             * 默认为行级
-             */
-            private TenantIsolateLevelEnumI isolateLevel = TenantIsolateLevelEnumI.LINE;
-
-            /**
-             * 哪些表不启用租户隔离
-             */
-            private List<String> ignoredTables = new ArrayList<>(64);
-
-        }
 
         @Data
         public static class OptimisticLock {
@@ -157,5 +132,44 @@ public class SupremeProperties {
          * swagger会解析的包路径
          **/
         private String basePackage = "club.supreme.module";
+    }
+
+    @Data
+    public static class Tenant {
+
+        /**
+         * 是否启用多租户
+         * 默认为false
+         */
+        private Boolean enabled = false;
+
+        /**
+         * 多租户隔离级别
+         * 默认为行级
+         */
+        private TenantIsolateLevelEnumI isolateLevel = TenantIsolateLevelEnumI.LINE;
+
+        /**
+         * 哪些表不启用租户隔离
+         */
+        private List<String> ignoredTables = new ArrayList<>(64);
+
+    }
+
+    @Data
+    public static class Web {
+
+        private final Logging logging = new Logging();
+
+        @Data
+        public static class Logging {
+
+            /**
+             * 是否启用 Web 访问日志切面，默认为 false
+             */
+            private Boolean enabled = Boolean.FALSE;
+
+        }
+
     }
 }

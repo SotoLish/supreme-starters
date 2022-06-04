@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  * Redis分布式可重入锁
  *
  * @author dcy
- * @author Uncarbon
+ * @author Supreme
  */
 public interface DistributedLock {
 

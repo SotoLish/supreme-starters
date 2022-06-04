@@ -17,11 +17,17 @@ import java.util.List;
 import static com.baomidou.mybatisplus.annotation.SqlCondition.LIKE;
 
 
+/**
+ * supreme tree entity
+ *
+ * @author supreme Lai
+ * @date 2022/05/26
+ */
 @Getter
 @Setter
 @Accessors(chain = true)
 @ToString(callSuper = true)
-public class SupremeTreeEntity<E, PK extends Serializable> extends SupremeBaseEntity<PK> {
+public abstract class SupremeTreeBaseEntity<E, PK extends Serializable> extends SupremeBaseEntity<PK> {
 
     /**
      * 名称
@@ -47,6 +53,9 @@ public class SupremeTreeEntity<E, PK extends Serializable> extends SupremeBaseEn
     protected Integer sortValue;
 
 
+    /**
+     * 子节点
+     */
     @ApiModelProperty(value = "子节点", hidden = true)
     @TableField(exist = false)
     protected List<E> children;
@@ -62,6 +71,9 @@ public class SupremeTreeEntity<E, PK extends Serializable> extends SupremeBaseEn
         }
     }
 
+    /**
+     * @param child
+     */
     @JsonIgnore
     public void addChildren(E child) {
         initChildren();

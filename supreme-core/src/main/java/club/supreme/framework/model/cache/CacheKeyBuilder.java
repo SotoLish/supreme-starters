@@ -2,6 +2,7 @@ package club.supreme.framework.model.cache;
 
 
 import club.supreme.framework.constant.StrPool;
+import club.supreme.framework.context.TenantContextHolder;
 import club.supreme.framework.context.UserContextHolder;
 import club.supreme.framework.utils.ArgumentAssert;
 import cn.hutool.core.collection.CollUtil;
@@ -35,7 +36,7 @@ public interface CacheKeyBuilder {
      */
     @NonNull
     default Long getTenant() {
-        return UserContextHolder.getRelationalTenant().getTenantId();
+        return TenantContextHolder.getTenantId();
     }
 
     /**

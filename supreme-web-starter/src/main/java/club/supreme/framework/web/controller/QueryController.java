@@ -35,7 +35,7 @@ public interface QueryController<Entity, Id extends Serializable, PageQuery> ext
      * @return 查询结果
      */
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "主键", dataType = "long", paramType = "path"),
+            @ApiImplicitParam(name = "id", value = "主键", dataType = "long", dataTypeClass = Long.class, paramType = "path"),
     })
     @ApiOperation(value = "单体查询", notes = "单体查询")
     @GetMapping("/{id}")

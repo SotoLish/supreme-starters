@@ -4,12 +4,9 @@ import club.supreme.framework.cache.repository.CacheOps;
 import club.supreme.framework.crud.mapper.SupremeBaseMapper;
 import club.supreme.framework.crud.service.SupremeCacheService;
 import club.supreme.framework.model.SupremeBaseEntity;
-import club.supreme.framework.model.SupremeEntity;
 import club.supreme.framework.model.cache.CacheKey;
 import club.supreme.framework.model.cache.CacheKeyBuilder;
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.collection.CollectionUtil;
-import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.ReflectUtil;
 import com.baomidou.mybatisplus.core.enums.SqlMethod;
@@ -48,7 +45,7 @@ import java.util.stream.Collectors;
  * @author zuihou
  * @date 2020年02月27日18:15:17
  */
-public abstract class SupremeCacheServiceImpl<MAPPER extends SupremeBaseMapper<ENTITY>, ENTITY extends SupremeEntity<?>>
+public abstract class SupremeCacheServiceImpl<MAPPER extends SupremeBaseMapper<ENTITY>, ENTITY>
         extends SupremeBaseServiceImpl<MAPPER, ENTITY> implements SupremeCacheService<ENTITY> {
 
     @Autowired

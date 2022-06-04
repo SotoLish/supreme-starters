@@ -1,5 +1,6 @@
 package club.supreme.framework.crud.injector;
 
+import club.supreme.framework.constant.SupremeConstant;
 import club.supreme.framework.crud.injector.method.UpdateAllById;
 import club.supreme.framework.model.SupremeBaseEntity;
 import cn.hutool.core.util.ArrayUtil;
@@ -25,7 +26,7 @@ public class SupremeSqlInjector extends DefaultSqlInjector {
         //增加自定义方法
         methodList.add(new InsertBatchSomeColumn(i -> i.getFieldFill() != FieldFill.UPDATE));
         methodList.add(new UpdateAllById(field -> !ArrayUtil.containsAny(new String[]{
-                SupremeBaseEntity.COLUMN_CREATED_AT, SupremeBaseEntity.COLUMN_CREATED_BY
+                SupremeConstant.CRUD.COLUMN_CREATED_AT, SupremeConstant.CRUD.COLUMN_CREATED_BY
         }, field.getColumn())));
         return methodList;
     }

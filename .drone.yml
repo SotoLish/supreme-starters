@@ -19,7 +19,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
 volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-build
     host:
-      path: /home/supreme/maven/build # 从宿主机中挂载的目录
+      path: /mnt/user/NAS/DOCKER/docker/drone/maven/build # 从宿主机中挂载的目录
   - name: maven-cache
     host:
-      path: /home/supreme/maven/cache
+      path: /mnt/user/NAS/DOCKER/docker/drone/maven/cache

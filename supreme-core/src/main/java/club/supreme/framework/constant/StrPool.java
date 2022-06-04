@@ -13,11 +13,7 @@ public interface StrPool extends cn.hutool.core.text.StrPool {
     String ASTERISK = "*";
     String STAR = "*";
     String BACK_SLASH = "\\";
-//    String COLON = ":";
-//    String COMMA = ",";
-//    String DASH = "-";
     String DOLLAR = "$";
-//    String DOT = ".";
     String DOTDOT = "..";
     String DOT_CLASS = ".class";
     String DOT_JAVA = ".java";
@@ -25,14 +21,10 @@ public interface StrPool extends cn.hutool.core.text.StrPool {
     String EMPTY = "";
     String EQUALS = "=";
     String FALSE = "false";
-//    String SLASH = "/";
     String HASH = "#";
     String HAT = "^";
-//    String LEFT_BRACE = "{";
-//    String BRACE = "{}";
     String LEFT_BRACKET = "(";
     String LEFT_CHEV = "<";
-//    String NEWLINE = "\n";
     String N = "n";
     String NO = "no";
     String NULL = "null";
@@ -54,10 +46,7 @@ public interface StrPool extends cn.hutool.core.text.StrPool {
     String BACKTICK = "`";
     String SPACE = " ";
     String TILDA = "~";
-//    String LEFT_SQ_BRACKET = "[";
-//    String RIGHT_SQ_BRACKET = "]";
     String TRUE = "true";
-//    String UNDERSCORE = "_";
     String UTF_8 = "UTF-8";
     String GBK = "GBK";
     String US_ASCII = "US-ASCII";

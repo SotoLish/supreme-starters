@@ -1,7 +1,7 @@
 package club.supreme.framework.crud.handler;
 
 import club.supreme.framework.constant.SupremeConstant;
-import club.supreme.framework.context.UserContextHolder;
+import club.supreme.framework.context.TenantContextHolder;
 import club.supreme.framework.props.SupremeProperties;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import net.sf.jsqlparser.expression.Expression;
@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 
 /**
  * 行级租户拦截器
- * @author Uncarbon
+ * @author Supreme
  */
 public class SupremeTenantLineHandler implements TenantLineHandler {
 
@@ -21,7 +21,7 @@ public class SupremeTenantLineHandler implements TenantLineHandler {
 
     @Override
     public Expression getTenantId() {
-        return new LongValue(UserContextHolder.getRelationalTenant().getTenantId());
+        return new LongValue(TenantContextHolder.getTenantId());
     }
 
     @Override
@@ -31,11 +31,11 @@ public class SupremeTenantLineHandler implements TenantLineHandler {
 
     @Override
     public boolean ignoreTable(String tableName) {
-        if (SupremeConstant.CRUD.PRIVILEGED_TENANT_ID.equals(UserContextHolder.getRelationalTenant().getTenantId())) {
+        if (SupremeConstant.Tenant.DEFAULT_PRIVILEGED_TENANT_ID.equals(TenantContextHolder.getTenantId())) {
             return true;
         }
 
-        return supremeProperties.getCrud().getTenant().getIgnoredTables().contains(tableName);
+        return supremeProperties.getTenant().getIgnoredTables().contains(tableName);
     }
 
 }

@@ -1,7 +1,6 @@
 package club.supreme.framework.crud.service.impl;
 
 import club.supreme.framework.exception.BizException;
-import club.supreme.framework.model.SupremeEntity;
 import club.supreme.framework.crud.mapper.SupremeBaseMapper;
 import club.supreme.framework.crud.service.SupremeBaseService;
 import club.supreme.framework.model.response.R;
@@ -29,7 +28,7 @@ import static club.supreme.framework.exception.code.ExceptionCode.SERVICE_MAPPER
  * @date 2020年02月27日18:15:17
  */
 @NoArgsConstructor
-public class SupremeBaseServiceImpl<MAPPER extends SupremeBaseMapper<ENTITY>, ENTITY extends SupremeEntity<?>>
+public class SupremeBaseServiceImpl<MAPPER extends SupremeBaseMapper<ENTITY>, ENTITY>
         extends ServiceImpl<MAPPER, ENTITY> implements SupremeBaseService<ENTITY> {
     private Class<ENTITY> entityClass = null;
 

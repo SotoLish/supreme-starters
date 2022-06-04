@@ -2,7 +2,7 @@ package club.supreme.framework.utils;
 
 
 import club.supreme.framework.constant.StrPool;
-import club.supreme.framework.model.SupremeTreeEntity;
+import club.supreme.framework.model.SupremeTreeBaseEntity;
 import cn.hutool.core.collection.CollUtil;
 
 import java.io.Serializable;
@@ -28,7 +28,7 @@ public final class TreeUtil {
      * @param treeList 待转换的集合
      * @return 树结构
      */
-    public static <E extends SupremeTreeEntity<E, ? extends Serializable>> List<E> buildTree(List<E> treeList) {
+    public static <E extends SupremeTreeBaseEntity<E, ? extends Serializable>> List<E> buildTree(List<E> treeList) {
         if (CollUtil.isEmpty(treeList)) {
             return treeList;
         }
