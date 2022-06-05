@@ -2,6 +2,14 @@ kind: pipeline # 定义对象类型，还有secret和signature两种类型
 type: docker # 定义流水线类型，还有kubernetes、exec、ssh等类型
 name: supreme-starters-tiny-drone # 定义流水线名称
 
+volumes: # 定义流水线挂载目录，用于共享数据
+  - name: maven-build
+    host:
+      path: /mnt/user/NAS/DOCKER/docker/drone/maven/build # 从宿主机中挂载的目录
+  - name: maven-cache
+    host:
+      path: /mnt/user/NAS/DOCKER/docker/drone/maven/cache
+
 steps: # 定义流水线执行步骤，这些步骤将顺序执行
   - name: deploy-task # 流水线名称
     image: maven:3-jdk-11 # 定义创建容器的Docker镜像
@@ -12,16 +20,9 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     commands: # 定义在Docker容器中执行的shell命令
       - mvn clean deploy -DskipTests -q # 应用部署命令
-    when:
-      event:
-      - push
-      branch:
-      - master
 
-volumes: # 定义流水线挂载目录，用于共享数据
-  - name: maven-build
-    host:
-      path: /mnt/user/NAS/DOCKER/docker/drone/maven/build # 从宿主机中挂载的目录
-  - name: maven-cache
-    host:
-      path: /mnt/user/NAS/DOCKER/docker/drone/maven/cache
+trigger:
+  branch:
+    - master
+  event:
+    - push
