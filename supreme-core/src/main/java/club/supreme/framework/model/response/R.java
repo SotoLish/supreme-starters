@@ -3,6 +3,7 @@ package club.supreme.framework.model.response;
 import club.supreme.framework.exception.BizException;
 import club.supreme.framework.exception.code.BaseExceptionCode;
 import club.supreme.framework.jackson.JsonUtil;
+import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -24,7 +25,7 @@ import java.util.Map;
 public class R<T> {
     public static final String DEF_ERROR_MESSAGE = "系统繁忙，请稍候再试";
     public static final String HYSTRIX_ERROR_MESSAGE = "请求超时，请稍候再试";
-    public static final int SUCCESS_CODE = 0;
+    public static final int SUCCESS_CODE = HttpStatus.HTTP_OK;
     public static final int FAIL_CODE = -1;
     public static final int TIMEOUT_CODE = -2;
     /**

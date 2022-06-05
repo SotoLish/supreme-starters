@@ -1,6 +1,7 @@
 package club.supreme.framework.exception;
 
 
+import club.supreme.framework.enums.ISupremeBaseEnum;
 import club.supreme.framework.exception.code.BaseExceptionCode;
 
 /**
@@ -13,6 +14,10 @@ import club.supreme.framework.exception.code.BaseExceptionCode;
 public class BizException extends BaseUncheckedException {
 
     private static final long serialVersionUID = -3843907364558373817L;
+
+    public BizException(ISupremeBaseEnum<Integer> customEnum) {
+        super(customEnum.getValue(), customEnum.getLabel());
+    }
 
     public BizException(Throwable cause) {
         super(cause);
