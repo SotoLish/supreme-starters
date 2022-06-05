@@ -12,9 +12,9 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     commands: # 定义在Docker容器中执行的shell命令
       - mvn clean deploy -DskipTests -q # 应用部署命令
-    when:
-      event: [ push ]
-      branch: [ master ]
+#    when:
+#      event: [ push ]
+#      branch: [ master ]
 
 volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-build
