@@ -419,7 +419,7 @@
         <snapshotRepository>
             <id>maven-snapshots</id>
             <name>Nexus SnapshotsRepository</name>
-            <url>http://nexus.supreme.club/repository/maven-snapshots/</url>
+            <url>https://nexus.supreme.club/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
