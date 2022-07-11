@@ -17,7 +17,6 @@ import java.util.List;
 /**
  * 参数绑定验证
  *
- * @author Zhu JW
  * @author Supreme
  **/
 @UtilityClass

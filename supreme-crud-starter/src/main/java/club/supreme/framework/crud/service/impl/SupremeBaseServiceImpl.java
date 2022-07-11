@@ -24,7 +24,7 @@ import static club.supreme.framework.exception.code.ExceptionCode.SERVICE_MAPPER
  *
  * @param <MAPPER> Mapper
  * @param <ENTITY> 实体
- * @author zuihou
+ * @author supreme
  * @date 2020年02月27日18:15:17
  */
 @NoArgsConstructor

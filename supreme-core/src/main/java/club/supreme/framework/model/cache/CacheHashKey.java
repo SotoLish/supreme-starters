@@ -15,7 +15,7 @@ import static club.supreme.framework.constant.StrPool.COLON;
 /**
  * hash 缓存 key 封装
  *
- * @author zuihou
+ * @author supreme
  */
 @Data
 @ToString(callSuper = true)

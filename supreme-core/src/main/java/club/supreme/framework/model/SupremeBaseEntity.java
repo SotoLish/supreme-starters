@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 /**
  * 业务系统的实体类的基类
  *
- * @author Supreme Lai
+ * @author supreme
  * @date 2019/05/05
  */
 @Getter
@@ -39,7 +39,7 @@ public abstract class SupremeBaseEntity<PK extends Serializable> implements Seri
     /**
      * 主键
      *
-     * @author Supreme Lai
+     * @author supreme
      * @date 2020/8/10 9:18
      **/
     @ApiModelProperty(value = "主键")

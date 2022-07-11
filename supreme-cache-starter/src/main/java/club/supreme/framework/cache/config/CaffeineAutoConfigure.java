@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Primary;
 /**
  * 内存缓存配置
  *
- * @author zuihou
+ * @author supreme
  * @date 2019/08/07
  */
 @Slf4j

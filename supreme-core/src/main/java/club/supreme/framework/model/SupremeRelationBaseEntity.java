@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * 没有主键id的关系表，并且需要创建时间、创建人、修改时间，修改人、状态，租户等字段的可继承{@link SupremeRelationBaseEntity}
  *
- * @author Supreme Lai
+ * @author supreme
  * @date 2021/11/17
  **/
 @EqualsAndHashCode(callSuper = true)

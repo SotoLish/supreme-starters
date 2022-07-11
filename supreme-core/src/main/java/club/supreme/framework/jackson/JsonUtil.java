@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 /**
  * 对 jack json 进行封装
  *
- * @author zuihou
+ * @author supreme
  */
 @Slf4j
 public final class JsonUtil {

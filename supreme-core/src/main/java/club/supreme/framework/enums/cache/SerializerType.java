@@ -3,7 +3,7 @@ package club.supreme.framework.enums.cache;
 /**
  * 序列化类型
  *
- * @author zuihou
+ * @author supreme
  * @date 2021年04月19日08:25:13
  */
 public enum SerializerType {

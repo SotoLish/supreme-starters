@@ -12,7 +12,7 @@ import java.io.Serializable;
  * 没有租户的表
  * {@link SupremeNoTenantBaseEntity}
  *
- * @author Supreme Lai
+ * @author supreme
  * @date 2021/11/17
  **/
 @EqualsAndHashCode(callSuper = true)

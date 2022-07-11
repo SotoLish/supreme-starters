@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
  * <p>
  * https://blog.csdn.net/haoxin963/article/details/83245113
  *
- * @author zuihou
+ * @author supreme
  */
 @Getter
 @Slf4j
@@ -229,7 +229,7 @@ public class RedisOps {
      * 批量扫描后删除 匹配到的key
      *
      * @param pattern pattern
-     * @author tangyh
+     * @author supreme
      * @date 2021/6/18 3:21 下午
      * @create [2021/6/18 3:21 下午 ] [tangyh] [初始创建]
      */

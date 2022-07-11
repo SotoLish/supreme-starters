@@ -7,7 +7,7 @@ import club.supreme.framework.exception.code.ExceptionCode;
 /**
  * 403  禁止访问
  *
- * @author zuihou
+ * @author supreme
  * @version 1.0
  */
 public class ForbiddenException extends BaseUncheckedException {

@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 
 /**
  * 字段自动填充, 摘自Mybatis-Plus官方例程
- * @author nieqiurong
  * @author Supreme
  */
 public class MybatisPlusAutoFillColumnHandler implements MetaObjectHandler {

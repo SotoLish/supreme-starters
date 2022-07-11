@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  *
  * @param <Entity>  实体
  * @param <SaveDTO> 保存参数
- * @author zuihou
+ * @author supreme
  * @date 2020年03月07日22:07:31
  */
 @SaCheckLogin(type = StpUtil.TYPE)

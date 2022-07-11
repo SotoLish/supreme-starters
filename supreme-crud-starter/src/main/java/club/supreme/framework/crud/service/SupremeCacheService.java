@@ -15,7 +15,7 @@ import java.util.function.Function;
  * 2、SuperService 上的方法
  *
  * @param <ENTITY> 实体
- * @author zuihou
+ * @author supreme
  * @date 2020年03月03日20:49:03
  */
 public interface SupremeCacheService<ENTITY> extends SupremeBaseService<ENTITY> {

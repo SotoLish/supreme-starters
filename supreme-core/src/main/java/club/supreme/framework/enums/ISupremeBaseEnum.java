@@ -17,7 +17,6 @@ import java.util.function.Predicate;
 /**
  * 基础枚举类
  *
- * @author Zhu JW
  * @author Supreme
  **/
 public interface ISupremeBaseEnum<T extends Serializable> extends IEnum<T> {

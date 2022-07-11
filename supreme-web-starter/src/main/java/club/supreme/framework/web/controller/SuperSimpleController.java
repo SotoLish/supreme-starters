@@ -13,7 +13,7 @@ import java.lang.reflect.ParameterizedType;
  *
  * @param <S>      Service
  * @param <Entity> 实体
- * @author zuihou
+ * @author supreme
  * @date 2020年03月07日22:08:27
  */
 public abstract class SuperSimpleController<S extends SupremeBaseService<Entity>, Entity> implements BaseController<Entity> {

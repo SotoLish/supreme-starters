@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @param <Entity> 实体
  * @param <Id>     主键
- * @author zuihou
+ * @author supreme
  * @date 2020年03月07日22:02:16
  */
 @SaCheckLogin(type = StpUtil.TYPE)

@@ -35,7 +35,7 @@ import java.util.Map;
  *
  * @param <Entity>    实体
  * @param <PageQuery> 分页查询参数
- * @author zuihou
+ * @author supreme
  * @date 2020年03月07日22:02:06
  */
 @SaCheckLogin(type = StpUtil.TYPE)
@@ -81,7 +81,7 @@ public interface PoiController<Entity, PageQuery> extends PageController<Entity,
      *
      * @param params params
      * @return java.util.List<?>
-     * @author tangyh
+     * @author supreme
      * @date 2021/5/23 10:25 下午
      * @create [2021/5/23 10:25 下午 ] [tangyh] [初始创建]
      * @update [2021/5/23 10:25 下午 ] [tangyh] [变更描述]
@@ -169,7 +169,7 @@ public interface PoiController<Entity, PageQuery> extends PageController<Entity,
      * 子类增强ExportParams
      *
      * @param ep ep
-     * @author tangyh
+     * @author supreme
      * @date 2021/5/23 10:27 下午
      * @create [2021/5/23 10:27 下午 ] [tangyh] [初始创建]
      */

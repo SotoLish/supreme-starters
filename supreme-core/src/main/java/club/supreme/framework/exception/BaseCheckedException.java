@@ -3,7 +3,7 @@ package club.supreme.framework.exception;
 /**
  * 运行期异常基类
  *
- * @author zuihou
+ * @author supreme
  * @version 1.0
  */
 public abstract class BaseCheckedException extends Exception implements BaseException {

@@ -7,7 +7,7 @@ import club.supreme.framework.exception.code.ExceptionCode;
  * 业务参数异常
  * 用于在业务中，检测到非法参数时，进行抛出的异常。
  *
- * @author zuihou
+ * @author supreme
  * @version 3.5.0
  */
 public class ArgumentException extends BaseUncheckedException {

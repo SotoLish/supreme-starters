@@ -14,7 +14,7 @@ import java.util.WeakHashMap;
 /**
  * 枚举转换
  *
- * @author Zhu JW
+ * @author supreme
  **/
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class EnumConverterFactory implements ConverterFactory<String, ISupremeBaseEnum> {

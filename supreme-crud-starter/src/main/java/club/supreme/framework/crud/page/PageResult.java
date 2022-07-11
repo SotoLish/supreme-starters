@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * 分页查询结果
- * @author Uncarbon
+ * @author supreme
  */
 @ApiModel(value = "分页查询结果")
 @Accessors(chain = true)

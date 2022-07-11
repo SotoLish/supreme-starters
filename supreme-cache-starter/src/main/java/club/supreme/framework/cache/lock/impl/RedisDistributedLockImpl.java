@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Redis分布式可重入锁，基于Redisson实现
  *
- * @author dcy
+ * @author supreme
  * @author Supreme
  */
 @Slf4j

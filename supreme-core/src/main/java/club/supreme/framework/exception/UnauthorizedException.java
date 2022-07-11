@@ -6,7 +6,7 @@ import club.supreme.framework.exception.code.ExceptionCode;
 /**
  * 401 未认证 未登录
  *
- * @author zuihou
+ * @author supreme
  * @version 1.0
  */
 public class UnauthorizedException extends BaseUncheckedException {

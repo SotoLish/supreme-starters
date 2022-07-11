@@ -102,7 +102,7 @@ public interface SupremeConstant {
 
     /**
      * Tenant
-     * @author supreme Lai
+     * @author supreme
      * @date 2022/05/26
      */
     interface Tenant {

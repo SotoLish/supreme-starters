@@ -20,8 +20,8 @@ import java.io.IOException;
  * "valueLabel": "bar"
  * }
  *
- * @author Zhu JW
- * @author Uncarbon
+ * @author supreme
+ * @author supreme
  **/
 public class EnumModule extends SimpleModule {
     public EnumModule() {

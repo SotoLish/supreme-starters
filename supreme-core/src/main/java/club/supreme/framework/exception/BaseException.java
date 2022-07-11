@@ -3,7 +3,7 @@ package club.supreme.framework.exception;
 /**
  * 异常接口类
  *
- * @author zuihou
+ * @author supreme
  * @version 1.0
  */
 public interface BaseException {

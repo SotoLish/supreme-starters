@@ -22,7 +22,7 @@ import static club.supreme.framework.constant.StrPool.COLON;
 /**
  * cache key
  *
- * @author zuihou
+ * @author supreme
  */
 @FunctionalInterface
 public interface CacheKeyBuilder {

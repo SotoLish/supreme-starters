@@ -3,7 +3,7 @@ package club.supreme.framework.constant;
 /**
  * 常用字符串
  *
- * @author zuihou
+ * @author supreme
  * @date 2019/07/25
  */
 public interface StrPool extends cn.hutool.core.text.StrPool {

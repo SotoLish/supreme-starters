@@ -42,7 +42,7 @@ import java.util.stream.Collectors;
  *
  * @param <MAPPER>
  * @param <ENTITY>
- * @author zuihou
+ * @author supreme
  * @date 2020年02月27日18:15:17
  */
 public abstract class SupremeCacheServiceImpl<MAPPER extends SupremeBaseMapper<ENTITY>, ENTITY>

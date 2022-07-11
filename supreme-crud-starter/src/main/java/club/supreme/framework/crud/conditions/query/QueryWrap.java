@@ -37,7 +37,7 @@ import static com.baomidou.mybatisplus.core.enums.WrapperKeyword.APPLY;
  * 5，增加 leFooter 方法， 将日期参数值，强制转换成当天 23：59：59
  * 6，增加 geHeader 方法， 将日期参数值，强制转换成当天 00：00：00
  *
- * @author hubin miemie HCL
+ * @author supreme
  * @since 2018-05-25
  */
 @SuppressWarnings("serial")

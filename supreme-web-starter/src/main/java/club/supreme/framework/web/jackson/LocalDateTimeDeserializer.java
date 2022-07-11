@@ -23,7 +23,7 @@ import static cn.hutool.core.date.DatePattern.*;
  * 5. yyyy年MM月dd日HH时mm分ss秒
  * 6. yyyy/MM/dd HH:mm:ss
  *
- * @author zuihou
+ * @author supreme
  * @date 2020/6/18 上午10:50
  */
 @SuppressWarnings("ALL")

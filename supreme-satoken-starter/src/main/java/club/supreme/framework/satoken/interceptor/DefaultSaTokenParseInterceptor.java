@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 从请求头解析用户信息，并赋值到上下文
  *
- * @author Uncarbon
+ * @author supreme
  */
 @Slf4j
 public class DefaultSaTokenParseInterceptor implements AsyncHandlerInterceptor {

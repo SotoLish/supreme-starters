@@ -3,7 +3,7 @@ package club.supreme.framework.exception.code;
 /**
  * 异常编码
  *
- * @author zuihou
+ * @author supreme
  * @date 2017-12-25 13:46
  */
 public interface BaseExceptionCode {

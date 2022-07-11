@@ -20,7 +20,7 @@ import static com.baomidou.mybatisplus.annotation.SqlCondition.LIKE;
 /**
  * supreme tree entity
  *
- * @author supreme Lai
+ * @author supreme
  * @date 2022/05/26
  */
 @Getter

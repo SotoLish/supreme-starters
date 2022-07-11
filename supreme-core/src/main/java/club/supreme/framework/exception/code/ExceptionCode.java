@@ -4,7 +4,7 @@ package club.supreme.framework.exception.code;
 /**
  * 异常编码
  *
- * @author zuihou
+ * @author supreme
  * @date 2017-12-13 16:22
  */
 public enum ExceptionCode implements BaseExceptionCode {

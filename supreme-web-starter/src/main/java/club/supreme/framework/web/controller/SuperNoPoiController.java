@@ -25,7 +25,7 @@ import java.lang.reflect.ParameterizedType;
  * @param <PageQuery>   分页参数
  * @param <SaveDTO>   保存参数
  * @param <UpdateDTO> 修改参数
- * @author zuihou
+ * @author supreme
  * @date 2020年03月06日11:06:46
  */
 public abstract class SuperNoPoiController<S extends SupremeBaseService<Entity>, Id extends Serializable, Entity, PageQuery, SaveDTO, UpdateDTO> extends SuperSimpleController<S, Entity>

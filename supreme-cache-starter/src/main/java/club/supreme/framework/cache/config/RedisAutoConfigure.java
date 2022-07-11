@@ -42,7 +42,7 @@ import java.util.Optional;
 /**
  * redis 配置类
  *
- * @author zuihou
+ * @author supreme
  * @date 2019-08-06 10:42
  */
 @ConditionalOnClass(RedisConnectionFactory.class)

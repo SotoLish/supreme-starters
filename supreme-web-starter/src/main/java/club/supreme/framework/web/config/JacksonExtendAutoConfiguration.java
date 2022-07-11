@@ -27,8 +27,7 @@ import java.util.TimeZone;
 /**
  * Jackson配置类
  *
- * @author Zhu JW
- * @author Uncarbon
+ * @author supreme
  */
 @ConditionalOnClass(ObjectMapper.class)
 @AutoConfigureBefore({JacksonAutoConfiguration.class})
