@@ -59,7 +59,9 @@ public abstract class SupremeBaseEntity<PK extends Serializable> implements Seri
      */
     @ApiModelProperty(value = "创建时刻")
     @DateTimeFormat(pattern = SupremeConstant.Jackson.DATE_TIME_FORMAT)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = SupremeConstant.Jackson.DATE_TIME_FORMAT , timezone = SupremeConstant.Jackson.TIME_ZONE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,
+            pattern = SupremeConstant.Jackson.DATE_TIME_FORMAT ,
+            timezone = SupremeConstant.Jackson.TIME_ZONE)
     @TableField(value = SupremeConstant.CRUD.COLUMN_CREATED_AT, fill = FieldFill.INSERT)
     protected LocalDateTime createdAt;
 

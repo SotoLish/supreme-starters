@@ -8,6 +8,7 @@ import club.supreme.framework.exception.UnauthorizedException;
 import club.supreme.framework.exception.code.ExceptionCode;
 import club.supreme.framework.model.response.R;
 import club.supreme.framework.utils.InvalidFieldUtil;
+import cn.dev33.satoken.exception.NotLoginException;
 import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.exceptions.PersistenceException;
@@ -15,6 +16,7 @@ import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -36,6 +38,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -74,7 +77,7 @@ public abstract class AbstractGlobalExceptionHandler {
      */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ArgumentException.class)
-    public R bizException(ArgumentException ex) {
+    public R argumentException(ArgumentException ex) {
         log.warn("ArgumentException:", ex);
         return R.result(ex.getCode(), null, ex.getMessage(), ex.getLocalizedMessage()).setPath(getPath());
     }
@@ -88,7 +91,7 @@ public abstract class AbstractGlobalExceptionHandler {
     @ExceptionHandler(ForbiddenException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public R<?> forbiddenException(ForbiddenException ex) {
-        log.warn("BizException:", ex);
+        log.warn("ForbiddenException:", ex);
         return R.result(ex.getCode(), null, ex.getMessage(), ex.getLocalizedMessage()).setPath(getPath());
     }
 
@@ -101,7 +104,7 @@ public abstract class AbstractGlobalExceptionHandler {
     @ExceptionHandler(UnauthorizedException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public R<?> unauthorizedException(UnauthorizedException ex) {
-        log.warn("BizException:", ex);
+        log.warn("UnauthorizedException:", ex);
         return R.result(ex.getCode(), null, ex.getMessage(), ex.getLocalizedMessage()).setPath(getPath());
     }
 
@@ -121,6 +124,16 @@ public abstract class AbstractGlobalExceptionHandler {
             return R.result(ExceptionCode.PARAM_EX.getCode(), null, msg, ex.getMessage()).setPath(getPath());
         }
         return R.result(ExceptionCode.PARAM_EX.getCode(), null, ExceptionCode.PARAM_EX.getMsg(), ex.getMessage()).setPath(getPath());
+    }
+
+    /**
+     * 用户登录异常
+     */
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler({NotLoginException.class})
+    public R<?> handleNotLoginException(NotLoginException e, HttpServletRequest request) {
+        log.warn("NotLoginException:", e);
+        return R.result(HttpStatus.UNAUTHORIZED.value(), null, "请您先登录");
     }
 
     /**
@@ -310,6 +323,7 @@ public abstract class AbstractGlobalExceptionHandler {
         return R.result(ExceptionCode.BASE_VALID_PARAM.getCode(),
                         null,
                         InvalidFieldUtil.getInvalidFieldStr(ex.getBindingResult()),
+//                        InvalidFieldUtil.listInvalidFieldStr(ex.getBindingResult()).stream().map(Object::toString).collect(Collectors.joining("\n")),
                         ex.getMessage()
                 )
                 .setPath(getPath());

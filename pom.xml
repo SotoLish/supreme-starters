@@ -394,32 +394,32 @@
     </dependencyManagement>
 
 
-    <repositories>
-        <repository>
-            <id>nexus</id>
-            <name>Nexus Repository</name>
-            <url>https://nexus.supreme.club/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <!--snapshots默认是关闭的,需要开启 -->
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>nexus</id>-->
+<!--            <name>Nexus Repository</name>-->
+<!--            <url>https://nexus.supreme.club/repository/maven-public/</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            &lt;!&ndash;snapshots默认是关闭的,需要开启 &ndash;&gt;-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
-    <!--私服上传配置-->
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <name>Nexus ReleaseRepository</name>
-            <url>https://nexus.supreme.club/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <name>Nexus SnapshotsRepository</name>
-            <url>https://nexus.supreme.club/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+<!--    &lt;!&ndash;私服上传配置&ndash;&gt;-->
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>maven-releases</id>-->
+<!--            <name>Nexus ReleaseRepository</name>-->
+<!--            <url>https://nexus.supreme.club/repository/maven-releases/</url>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>maven-snapshots</id>-->
+<!--            <name>Nexus SnapshotsRepository</name>-->
+<!--            <url>https://nexus.supreme.club/repository/maven-snapshots/</url>-->
+<!--        </snapshotRepository>-->
+<!--    </distributionManagement>-->
 </project>

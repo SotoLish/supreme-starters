@@ -4,6 +4,7 @@ import club.supreme.framework.constant.StrPool;
 import club.supreme.framework.constant.SupremeConstant;
 import club.supreme.framework.crud.conditions.Wraps;
 import club.supreme.framework.model.SupremeBaseEntity;
+import cn.hutool.core.annotation.Alias;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
@@ -13,6 +14,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.core.annotation.AliasFor;
 
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -36,13 +38,15 @@ public class PageParams<T> {
     private T model;
 
     @ApiModelProperty(value = "页面大小", example = "10")
+    @Alias(value = "pageSize")
     private long size = 10;
 
     @ApiModelProperty(value = "当前页", example = "1")
+    @Alias(value = "pageNum")
     private long current = 1;
 
     @ApiModelProperty(value = "排序,默认createdAt", allowableValues = "id,createdAt,updatedAt", example = "createdAt")
-    private String sort = SupremeConstant.CRUD.COLUMN_CREATED_AT;
+    private String sort = SupremeConstant.CRUD.ENTITY_FIELD_CREATED_AT;
 
     @ApiModelProperty(value = "排序规则, 默认descending", allowableValues = "descending,ascending", example = "descending")
     private String order = "descending";

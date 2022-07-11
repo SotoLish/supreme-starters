@@ -4,6 +4,9 @@ import club.supreme.framework.crud.conditions.Wraps;
 import club.supreme.framework.crud.conditions.query.QueryWrap;
 import club.supreme.framework.crud.page.PageParams;
 import club.supreme.framework.model.response.R;
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckPermission;
+import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -26,6 +29,7 @@ import java.util.List;
  * @author zuihou
  * @date 2020年03月07日22:06:35
  */
+@SaCheckLogin(type = StpUtil.TYPE)
 public interface QueryController<Entity, Id extends Serializable, PageQuery> extends PageController<Entity, PageQuery> {
 
     /**

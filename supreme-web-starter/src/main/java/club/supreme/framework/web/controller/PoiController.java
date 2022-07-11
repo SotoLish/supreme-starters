@@ -12,6 +12,8 @@ import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
 import cn.afterturn.easypoi.view.PoiBaseView;
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.StrUtil;
@@ -36,6 +38,7 @@ import java.util.Map;
  * @author zuihou
  * @date 2020年03月07日22:02:06
  */
+@SaCheckLogin(type = StpUtil.TYPE)
 public interface PoiController<Entity, PageQuery> extends PageController<Entity, PageQuery> {
     /**
      * 获取实体的类型

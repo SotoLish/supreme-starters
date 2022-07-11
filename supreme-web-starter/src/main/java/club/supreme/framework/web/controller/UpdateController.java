@@ -3,6 +3,8 @@ package club.supreme.framework.web.controller;
 import club.supreme.framework.exception.code.ExceptionCode;
 import club.supreme.framework.model.SupremeBaseEntity;
 import club.supreme.framework.model.response.R;
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author zuihou
  * @date 2020年03月07日22:30:37
  */
+@SaCheckLogin(type = StpUtil.TYPE)
 public interface UpdateController<Entity, UpdateDTO> extends BaseController<Entity> {
 
     /**

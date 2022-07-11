@@ -2,6 +2,8 @@ package club.supreme.framework.web.controller;
 
 import club.supreme.framework.crud.service.SupremeCacheService;
 import club.supreme.framework.model.response.R;
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.stp.StpUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import java.io.Serializable;
  * @author zuihou
  * @date 2020年03月06日11:06:46
  */
+@SaCheckLogin(type = StpUtil.TYPE)
 public abstract class SuperCacheController<S extends SupremeCacheService<Entity>, Id extends Serializable, Entity, PageQuery, SaveDTO, UpdateDTO>
         extends SuperController<S, Id, Entity, PageQuery, SaveDTO, UpdateDTO> {
 

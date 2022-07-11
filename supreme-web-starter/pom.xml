@@ -45,6 +45,11 @@
             <groupId>cn.afterturn</groupId>
             <artifactId>easypoi-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>club.supreme.framework</groupId>
+            <artifactId>supreme-satoken-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

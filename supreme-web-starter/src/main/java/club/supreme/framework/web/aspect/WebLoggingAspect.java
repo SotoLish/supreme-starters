@@ -12,9 +12,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -72,6 +70,17 @@ public class WebLoggingAspect {
         reqLog.append("{}: {} \n");
         reqLogParameters.add(request.getMethod());
         reqLogParameters.add(request.getRequestURI());
+
+        // 打印header
+        reqLog.append("Headers: {} \n");
+
+        Map<String, Object> headerMaps = new HashMap<>(16);
+        Enumeration<String> requestHeaderNames = request.getHeaderNames();
+        while (requestHeaderNames.hasMoreElements()) {
+            String key = requestHeaderNames.nextElement();
+            headerMaps.put(key, request.getHeader(key));
+        }
+        reqLogParameters.add(headerMaps);
 
         // 打印入参
         reqLog.append("Parameters: {} \n");

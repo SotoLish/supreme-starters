@@ -1,6 +1,8 @@
 package club.supreme.framework.web.controller;
 
 import club.supreme.framework.model.response.R;
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.stp.StpUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +19,7 @@ import java.util.List;
  * @author zuihou
  * @date 2020年03月07日22:02:16
  */
+@SaCheckLogin(type = StpUtil.TYPE)
 public interface DeleteController<Entity, Id extends Serializable> extends BaseController<Entity> {
 
     /**
