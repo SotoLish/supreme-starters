@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    club.supreme.framework.cloud.config.OpenFeignAutoConfiguration , \
+    club.supreme.framework.cloud.config.RestTemplateConfiguration
+

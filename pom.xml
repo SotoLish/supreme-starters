@@ -11,6 +11,7 @@
         <module>supreme-cache-starter</module>
         <module>supreme-knife4j-starter</module>
         <module>supreme-satoken-starter</module>
+        <module>supreme-cloud-starter</module>
     </modules>
 
     <groupId>club.supreme.framework</groupId>
@@ -35,19 +36,9 @@
         <java.version>1.8</java.version>
 
         <spring-cloud.version>2020.0.4</spring-cloud.version>
-<!--        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>-->
-
-        <!-- Spring Cloud versions -->
-        <spring-cloud-starter-bootstrap.version>3.0.3</spring-cloud-starter-bootstrap.version>
-
 
         <!-- Spring Cloud Alibaba versions -->
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-<!--        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>-->
-
-<!--        <seata.vesion>1.4.2</seata.vesion>-->
-<!--        <nacos-client.vesion>2.0.3</nacos-client.vesion>-->
-<!---->
 
         <!-- 3rd-party versions -->
         <hutool.version>5.7.16</hutool.version>
@@ -59,11 +50,12 @@
         <knife4j.version>3.0.3</knife4j.version>
         <redisson.version>3.16.3</redisson.version>
         <aspectj.version>1.9.6</aspectj.version>
-        <ons-client.version>1.8.8.1.Final</ons-client.version>
 
         <easypoi.version>4.2.0</easypoi.version>
 
         <guava.version>31.0.1-jre</guava.version>
+
+        <nacos-client.version>2.0.4</nacos-client.version>
 
         <!-- DB Driver versions -->
 <!--        <mysql.version>8.0.23</mysql.version>-->
@@ -83,6 +75,7 @@
         <buildTime>v.${project.version} build ${maven.build.timestamp.format}</buildTime>
         <main.user.dir>${basedir}/..</main.user.dir>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+
     </properties>
 
 
@@ -130,6 +123,12 @@
 
             <dependency>
                 <groupId>club.supreme.framework</groupId>
+                <artifactId>supreme-cloud-starter</artifactId>
+                <version>${supreme-starters.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>club.supreme.framework</groupId>
                 <artifactId>supreme-satoken-starter</artifactId>
                 <version>${supreme-starters.version}</version>
             </dependency>
@@ -139,8 +138,6 @@
                 <artifactId>supreme-knife4j-starter</artifactId>
                 <version>${supreme-starters.version}</version>
             </dependency>
-
-
 
 
             <!-- 以下两个不知道为什么, 好像一定得加 -->
@@ -195,11 +192,11 @@
 <!--                <version>${spring-cloud-starter-bootstrap.version}</version>-->
 <!--            </dependency>-->
 
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba.nacos</groupId>-->
-<!--                <artifactId>nacos-client</artifactId>-->
-<!--                <version>${nacos-client.vesion}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos-client.version}</version>
+            </dependency>
 
 
             <!-- CRUD dependencies -->
@@ -246,13 +243,6 @@
                 <version>${druid.version}</version>
             </dependency>
 
-            <!-- DUBBO dependencies -->
-<!--            <dependency>-->
-<!--                <groupId>org.apache.dubbo</groupId>-->
-<!--                <artifactId>dubbo-spring-boot-starter</artifactId>-->
-<!--                <version>${dubbo.version}</version>-->
-<!--            </dependency>-->
-
 
             <!-- KNIFE4J dependencies -->
             <dependency>
@@ -287,13 +277,6 @@
                 </exclusions>
             </dependency>
 
-            <!-- ROCKETMQ-ALIYUN dependencies -->
-<!--            <dependency>-->
-<!--                <groupId>com.aliyun.openservices</groupId>-->
-<!--                <artifactId>ons-client</artifactId>-->
-<!--                <version>${ons-client.version}</version>-->
-<!--            </dependency>-->
-
 
             <!-- SA-TOKEN dependencies -->
             <dependency>
@@ -307,22 +290,6 @@
                 <artifactId>sa-token-dao-redis-jackson</artifactId>
                 <version>${sa-token.version}</version>
             </dependency>
-
-
-            <!-- SEATA dependencies -->
-<!--            <dependency>-->
-<!--                <groupId>io.seata</groupId>-->
-<!--                <artifactId>seata-spring-boot-starter</artifactId>-->
-<!--                <version>${seata.vesion}</version>-->
-<!--            </dependency>-->
-
-
-            <!-- TEST dependencies -->
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-starter-test</artifactId>-->
-<!--                <version>${spring-boot.version}</version>-->
-<!--            </dependency>-->
 
 
             <!-- WEB dependencies -->
@@ -394,32 +361,32 @@
     </dependencyManagement>
 
 
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>nexus</id>-->
-<!--            <name>Nexus Repository</name>-->
-<!--            <url>https://nexus.supreme.club/repository/maven-public/</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            &lt;!&ndash;snapshots默认是关闭的,需要开启 &ndash;&gt;-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--    </repositories>-->
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Repository</name>
+            <url>http://10.67.136.127:8081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!--snapshots默认是关闭的,需要开启 -->
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-<!--    &lt;!&ndash;私服上传配置&ndash;&gt;-->
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>maven-releases</id>-->
-<!--            <name>Nexus ReleaseRepository</name>-->
-<!--            <url>https://nexus.supreme.club/repository/maven-releases/</url>-->
-<!--        </repository>-->
-<!--        <snapshotRepository>-->
-<!--            <id>maven-snapshots</id>-->
-<!--            <name>Nexus SnapshotsRepository</name>-->
-<!--            <url>https://nexus.supreme.club/repository/maven-snapshots/</url>-->
-<!--        </snapshotRepository>-->
-<!--    </distributionManagement>-->
+    <!--私服上传配置-->
+    <distributionManagement>
+        <repository>
+            <id>maven-releases</id>
+            <name>Nexus ReleaseRepository</name>
+            <url>http://10.67.136.127:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <name>Nexus SnapshotsRepository</name>
+            <url>http://10.67.136.127:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
